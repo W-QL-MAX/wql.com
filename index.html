@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		 <audio src="js/yin.mp3" autoplay="autoplay" loop="loop" >
+		 </audio>
+		 <meta charset="utf-8" />
+		<title>李雨璐亲启</title>
+	</head>
+	<html lang="zh-CN">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>给我的女孩的新年祝福</title>
+	    <style>
+	        * {
+	            margin: 0;
+	            padding: 0;
+	            box-sizing: border-box;
+	            font-family: "微软雅黑", "苹方", sans-serif;
+	        }
+	        body {
+	            background: linear-gradient(120deg, #ff6b8b, #ff8fa3, #ffc0cb);
+	            min-height: 100vh;
+	            display: flex;
+	            justify-content: center;
+	            align-items: center;
+	            overflow: hidden;
+	            padding: 20px;
+	        }
+	        /* 雪花飘落动效 */
+	        .snow {
+	            position: absolute;
+	            top: -50px;
+	            color: #fff;
+	            font-size: 16px;
+	            opacity: 0.8;
+	            animation: snowfall linear infinite;
+	            z-index: 1;
+	        }
+	        @keyframes snowfall {
+	            0% {
+	                transform: translateY(0) rotate(0deg);
+	            }
+	            100% {
+	                transform: translateY(100vh) rotate(360deg);
+	            }
+	        }
+	        /* 祝福卡片 */
+	        .card {
+	            background: url(img/a4.jpg );
+				background-size: 445px 550px;
+	            border-radius: 20px;
+	            padding: 40px 30px;
+	            text-align: center;
+	            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+	            z-index: 2;
+	            max-width: 450px;
+	            width: 100%;
+	            border: 2px solid #ff6b8b;
+	            position: relative;
+	            overflow: hidden;
+	        }
+	        /* 卡片爱心装饰 */
+	        .card::before, .card::after {
+	            content: "❤️";
+	            position: absolute;
+	            font-size: 24px;
+	            animation: heartBeat 1.5s infinite;
+	        }
+	        .card::before {
+	            top: 15px;
+	            left: 20px;
+	        }
+	        .card::after {
+	            bottom: 15px;
+	            right: 20px;
+	        }
+	        @keyframes heartBeat {
+	            0%,100% {
+	                transform: scale(1);
+	            }
+	            50% {
+	                transform: scale(1.2);
+	            }
+	        }
+	        /* 标题 */
+	        .card h1 {
+	            color: #ff3366;
+	            font-size: 32px;
+	            margin-bottom: 15px;
+	            font-weight: bold;
+	        }
+	        /* 女友昵称 */
+	        .card .nickname {
+	            color: #ff6b8b;
+	            font-size: 28px;
+	            margin-bottom: 20px;
+	            font-style: italic;
+	        }
+	        /* 祝福内容 */
+	        .card .blessing {
+	            color: #333;
+	            font-size: 20px;
+	            line-height: 1.8;
+	            margin-bottom: 30px;
+	            white-space: pre-line;
+	        }
+	        /* 落款 */
+	        .card .signature {
+	            color: #ff3366;
+	            font-size: 22px;
+	            font-weight: bold;
+	            margin-top: 20px;
+	            text-align: right;
+	            padding-right: 10px;
+	        }
+	        /* 按钮 */
+	        .card .btn {
+	            margin-top: 30px;
+	            padding: 12px 36px;
+	            background: #ff3366;
+	            color: #fff;
+	            border: none;
+	            border-radius: 50px;
+	            font-size: 18px;
+	            cursor: pointer;
+	            transition: all 0.3s;
+	            font-weight: bold;
+	        }
+	        .card .btn:hover {
+	            background: #ff6b8b;
+	            transform: scale(1.05);
+	            box-shadow: 0 5px 15px rgba(255,51,102,0.3);
+	        }
+	        /* 弹窗 */
+	        .modal {
+	            position: fixed;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+	            background: rgba(0,0,0,0.7);
+	            z-index: 99;
+	            display: none;
+	            justify-content: center;
+	            align-items: center;
+	        }
+	        .modal-content {
+	            background: #fff;
+	            border-radius: 15px;
+	            padding: 30px;
+	            text-align: center;
+	            border: 3px solid #ff3366;
+	        }
+	        .modal-content p {
+	            color: #ff3366;
+	            font-size: 24px;
+	            font-weight: bold;
+	            margin-bottom: 20px;
+	        }
+	        .modal-content .close-btn {
+	            padding: 8px 24px;
+	            background: #ff3366;
+	            color: #fff;
+	            border: none;
+	            border-radius: 30px;
+	            cursor: pointer;
+	            font-size: 16px;
+	        }
+	        /* 适配手机 */
+	        @media (max-width: 400px) {
+	            .card h1 {
+	                font-size: 28px;
+	            }
+	            .card .nickname {
+	                font-size: 24px;
+	            }
+	            .card .blessing {
+	                font-size: 18px;
+	            }
+	        }
+	    </style>
+	</head>
+	<body>
+	    <!-- 雪花飘落 -->
+	    <div class="snow-container"></div>
+	    <!-- 祝福卡片 -->
+	    <div class="card">
+	        <h1>新年快乐，我的宝</h1>
+	        <div class="nickname">璐璐宝宝</div>
+	        <div class="blessing">
+				<img src="img/a1.jpg" alt="" height="250"/>
+				<p>点我一下</p>
+	新的一年，愿我的女孩被温柔以待，平安喜乐，万事胜意～
+	三餐四季，岁岁年年，我都会一直陪着你。
+	新年有你，岁岁年年，朝朝暮暮❤️
+	        </div>
+	        <div class="signature">爱你的珑</div>
+	        <button class="btn" id="clickBtn">点击解锁我的心意</button>
+	    </div>
+	    <!-- 弹窗 -->
+	    <div class="modal" id="modal">
+	        <div class="modal-content">
+				<img src="img/a2.jpg" alt="" height="245"/>
+				<p>一种相思，两处闲愁。此情无计可消除，才下眉头，却上心头。</p>
+				<p>新的一年，加倍爱你😘</p >
+	            <button class="close-btn" id="closeBtn">收下心意</button>
+	        </div>
+	    </div>
+	
+	    <script>
+	        // 雪花飘落效果
+	        function createSnow() {
+	            const snowContainer = document.querySelector('.snow-container');
+	            const snowCount = 50; // 雪花数量
+	            for (let i = 0; i < snowCount; i++) {
+	                const snow = document.createElement('div');
+	                snow.className = 'snow';
+	                snow.innerText = '❄️';
+	                // 随机位置、大小、动画时长
+	                snow.style.left = Math.random() * 100 + 'vw';
+	                snow.style.fontSize = Math.random() * 10 + 10 + 'px';
+	                snow.style.animationDuration = Math.random() * 10 + 10 + 's';
+	                snow.style.animationDelay = Math.random() * 5 + 's';
+	                snowContainer.appendChild(snow);
+	            }
+	        }
+	        createSnow();
+	
+	        // 按钮点击弹窗
+	        const clickBtn = document.getElementById('clickBtn');
+	        const modal = document.getElementById('modal');
+	        const closeBtn = document.getElementById('closeBtn');
+	
+	        clickBtn.addEventListener('click', () => {
+	            modal.style.display = 'flex';
+	        });
+	        closeBtn.addEventListener('click', () => {
+	            modal.style.display = 'none';
+	        });
+	        // 点击弹窗外部关闭
+	        modal.addEventListener('click', (e) => {
+	            if (e.target === modal) {
+	                modal.style.display = 'none';
+	            }
+	        });
+	
+	        // 页面加载爱心动效
+	        window.onload = function() {
+	            const card = document.querySelector('.card');
+	            card.style.opacity = 0;
+	            card.style.transform = 'scale(0.8)';
+	            setTimeout(() => {
+	                card.style.transition = 'all 0.8s ease';
+	                card.style.opacity = 1;
+	                card.style.transform = 'scale(1)';
+	            }, 300);
+	        }
+	    </script>
+	</body>
+	</html>
+</html>
